@@ -1,0 +1,61 @@
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+class Customer
+{
+private:
+   int customerIdNum;
+   char lastName[15];
+   char firstName[15];
+   double creditLimit;
+public:
+   void displayCustomerData();
+   void setCustomerIdNum(int num);
+   void setLastName(char name[]);
+   void setFirstName(char name[]);
+   void setCreditLimit(double CL);
+};
+
+
+//implementation section
+void Customer::displayCustomerData()
+{
+   cout<<"Customer ID Number "<<customerIdNum<<"'s first name is "<<firstName<<endl;
+   cout<<firstName<<"'s last name is "<<lastName<<endl;
+   cout<<"The credit limit for this customer is $"<<creditLimit<<endl;
+}
+void Customer::setCreditLimit(double CL)
+{
+   if( CL < 10000)
+     creditLimit = CL;
+   else
+     creditLimit = 9999;
+}
+void Customer::setLastName(char name[])
+{
+   strcpy(lastName, name);
+}
+void Customer::setFirstName(char name[])
+{
+   strcpy(firstName, name);
+}
+void Customer::setCustomerIdNum(int num)
+{
+   if ( customerIdNum < 10000)
+     customerIdNum = num;
+   else
+     customerIdNum = 9999;
+}
+void main()
+{
+
+
+  Customer aCustomer[5];
+   aCustomer[0].setCreditLimit(7000);
+   aCustomer.setLastName("Andrews");
+   aCustomer.setFirstName("Melissa");
+   aCustomer.setCustomerIdNum(754);
+   aCustomer.displayCustomerData();
+   getch();
+}
+
